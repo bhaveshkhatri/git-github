@@ -1,0 +1,47 @@
+package com.cb.practice;
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+public class WaterTreatmentPlant {
+	
+	static int numOfStations;
+	
+	
+
+	public static void main(String[] args) throws IOException {
+		
+		Map<int, Station> stations = new HashMap<int, Station>();
+		
+		
+		
+		FileReader fr;
+		BufferedReader br;
+		try {
+			fr = new FileReader("E:/NEW/Assignment2AtCogent/bin/com/cb/practice/config.txt");			
+			br = new BufferedReader(fr);
+			String s;
+			while((s = br.readLine())!=null) {
+				numOfStations = Integer.parseInt(br.readLine());
+				s0.workLoad =
+				System.out.println(s);
+				
+			}
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+		
+
+		
+		
+
+	}
+
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+<typeInfo handle="=TestMart/C:\/Program Files\/Java\/jdk1.8.0_111\/jre\/lib\/rt.jar&lt;java.lang(Exception.class[Exception" modifiers="33" timestamp="1477843797256"/>
+<typeInfo handle="=advanced-jaxrs-01/C:\/Users\/cB\/.m2\/repository\/org\/glassfish\/jersey\/bundles\/jaxrs-ri\/2.26-b02\/jaxrs-ri-2.26-b02.jar&lt;javax.ws.rs.core(Application.class[Application" modifiers="33" timestamp="1489260065343"/>
+<typeInfo handle="=advanced-jaxrs-01/C:\/Users\/cB\/.m2\/repository\/javax\/ws\/rs\/javax.ws.rs-api\/2.1-m03\/javax.ws.rs-api-2.1-m03.jar&lt;javax.ws.rs.ext(ParamConverterProvider.class[ParamConverterProvider" modifiers="1537" timestamp="1488243768327"/>
+<typeInfo handle="=advanced-jaxrs-01/C:\/Users\/cB\/.m2\/repository\/javax\/ws\/rs\/javax.ws.rs-api\/2.1-m03\/javax.ws.rs-api-2.1-m03.jar&lt;javax.ws.rs.ext(ParamConverter.class[ParamConverter" modifiers="1537" timestamp="1488243768327"/>
+<typeInfo handle="=advanced-jaxrs-01/C:\/Users\/cB\/.m2\/repository\/javax\/ws\/rs\/javax.ws.rs-api\/2.1-m03\/javax.ws.rs-api-2.1-m03.jar&lt;javax.ws.rs.ext(MessageBodyWriter.class[MessageBodyWriter" modifiers="1537" timestamp="1488243768327"/>
+<typeInfo handle="=Example/src&lt;com.cb.designpatterns.daopattern{EmployeeDao.java[EmployeeDao" modifiers="513" timestamp="1493059474913"/>
+</typeInfoHistroy>

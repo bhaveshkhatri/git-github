@@ -1,0 +1,33 @@
+package org.cb.practice.messenger.resources;
+
+import java.util.List;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+import org.cb.practice.messenger.model.Message;
+import org.cb.practice.service.MessageService;
+
+@Path("/messages")
+public class MessageResource {
+	
+	MessageService messageService = new MessageService();
+	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Message> getAllMessage() {
+		
+		return messageService.getAllMessages();
+	}
+	
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	public String test(@PathParam("messageId") String messageId){
+		
+		return "The Get path param is "+messageId;
+	}
+
+}

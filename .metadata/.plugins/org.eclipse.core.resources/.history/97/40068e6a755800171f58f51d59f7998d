@@ -1,0 +1,80 @@
+package com.cb.practice;
+
+import java.security.acl.LastOwnerException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class EncryptDecrypt {
+
+
+	static Scanner s = new Scanner(System.in);
+	static StringBuilder sb;
+	static String eString, dString, key;
+	static Map<String, String> listOfNames = new HashMap<>();
+	static int breakPoint=0;
+
+	public static void main(String[] args) {
+		
+		for(;;) {
+		System.out.println("Chose what you want to do!\n	Encryption: E   DecryptionL: D  Exit: X");
+		
+		String choice = s.next();
+		
+		if(choice.equalsIgnoreCase("E")) encrypt(); else
+		if(choice.equalsIgnoreCase("D")) decrypt(); else
+		if(choice.equalsIgnoreCase("X")) break; else
+			System.out.println("Wrong choice");
+		}
+
+	}
+
+	private static void decrypt() {
+		System.out.println();
+		System.out.println(listOfNames.values());
+		System.out.println("Select the string from above list to decrypt or enter your own: ");
+		dString = s.next();
+		breakPoint=0;
+		for(Object o: listOfNames.keySet()) {
+			if(listOfNames.get(o).equals(dString)) {
+				System.out.println("The decrypted string is: "+o);
+				breakPoint++;
+				break;
+			}
+		}
+		
+		if(dString.contains("#") && breakPoint==0) {
+			String[] parts = {dString.substring(0, dString.indexOf("#")), dString.substring(dString.indexOf("#")+1)};
+			//System.out.println(parts[0]+"     "+parts[1]);
+			eString = parts[1]+parts[0];
+			System.out.println("The decrypted string is: "+eString);		
+						
+		}
+		else if(breakPoint==0) {
+			String[] parts = {dString.substring(0, dString.length()/2), dString.substring(dString.length()/2)};
+			eString = parts[1]+parts[0];
+			System.out.println("The decrypted string is: "+eString+"\n\n");
+		}
+		
+		
+		
+		
+	}
+
+	private static void encrypt() {
+		System.out.println("Enter the sting to encrypt");
+		key = eString = s.next();
+		if(eString.length()%2!=0) eString = eString.concat("#");
+		//System.out.println(eString);
+		String[] parts = {eString.substring(0, eString.length()/2), eString.substring(eString.length()/2)};
+		//System.out.println(parts[0]+" "+wparts[1]);
+		dString = parts[1]+parts[0];
+		System.out.println("The encrypted string is: "+dString);
+		try{
+		listOfNames.put(key, dString);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+}

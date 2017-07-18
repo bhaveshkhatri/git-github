@@ -1,0 +1,25 @@
+package com.cb.practice;
+
+import java.util.Scanner;
+
+public class Mine {
+	
+	public static void main(String args[]) {
+		
+		int given;
+		Scanner s = new Scanner(System.in);
+		System.out.print("Please enter the number: ");
+		s.nextInt();
+		int x = 0, i, n;
+		for(i=111;i<n;i=(i+(1000*x))) {
+			
+		}
+		
+		
+		
+		
+		
+	}
+}
+
+

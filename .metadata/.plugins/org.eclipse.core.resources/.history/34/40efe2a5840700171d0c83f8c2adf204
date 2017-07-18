@@ -1,0 +1,13 @@
+package org.cb.practice.rest;
+
+import javax.ws.rs.Path;
+
+@Path("secured")
+public class NewResouce {
+	
+	public String runn() {
+		
+		return "This is form security fileter";
+	}
+
+}

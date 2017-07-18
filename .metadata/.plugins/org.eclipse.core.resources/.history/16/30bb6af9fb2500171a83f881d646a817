@@ -1,0 +1,20 @@
+package com.jdbc;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class JDBCTest {
+	
+	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+		
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hibernatedb","root","root");
+		Statement stmt = con.createStatement();
+		stmt.execute("create table mine(eid number, ename varchar(20), esal number, primary key(eid))");
+		stmt.execute("insert into mine values(1, "chinna", 5000)");
+		
+	}
+
+}

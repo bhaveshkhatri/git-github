@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.as.calendar.resource.CalenderResource&apos; to &apos;CalendarResource&apos;&#x0D;&#x0A;- Original project: &apos;Calendar&apos;&#x0D;&#x0A;- Original element: &apos;com.as.calendar.resource.CalenderResource&apos;&#x0D;&#x0A;- Renamed element: &apos;com.as.calendar.resource.CalendarResource&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;CalenderResource&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java&lt;com.as.calendar.resource{CalenderResource.java[CalenderResource" matchStrategy="1" name="CalendarResource" qualified="false" references="true" similarDeclarations="false" stamp="1497374481653" textual="false" version="1.0"/>
+</session>

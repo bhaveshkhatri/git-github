@@ -1,0 +1,31 @@
+package com.cb;
+
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Random;
+
+
+
+	public class mine {
+        
+		int x;
+		
+		static {
+			System.out.println("I am static ");
+		}
+		
+		{
+			System.out.println("I am instance");
+		}
+		
+		public mine() {
+			System.out.println("I am constructor");
+		}
+		
+		public static void main(String args[]) {
+			
+		System.out.println("I am main");
+		}
+    }
+

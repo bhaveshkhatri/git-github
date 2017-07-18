@@ -1,0 +1,92 @@
+<html ng-app="ContactsApp">
+
+<head>
+    <title>Caleculator</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+            crossorigin="anonymous">
+
+            <script src="angular.js"></script>
+            <script src="app.js"></script>
+            <script src="appname.service.js"></script>
+            <script src="appConfig.service.js"></script>
+            <script src="appointment.controller.js"></script>
+            <script src="appointmentData.service.js"></script>
+            
+</head>
+
+<body>
+
+
+
+    <div class="container" ng-controller="ContactsCtrl as ctrl">
+                <br/><br/><br/>
+                <h3>Appointment Manager</h3>
+        <div class="col-md-6">
+            
+            <ul class="list-groyp">
+                
+                <li class="list-group-item">
+                    <span><b>ID</b> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp         <b>Name</b>  </span>
+                </li>
+                <li class="list-group-item" ng-repeat="contact in ctrl.contacts" ng-click="ctrl.selectContact($index)">
+                    <span> {{ contact.aid }}    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ contact.pname }} </span>
+                </li>
+            </ul>
+            <button ng-click="ctrl.addContact()">Add</button>
+            <button ng-click="ctrl.deleteAppointment()">Delete</button>
+        </div>
+
+
+        <div class="col-md-6">
+            <div class="alert alert-success" ng-if="ctrl.successMessage">{{ ctrl.successMessage }}</div>
+            <div class="alert alert-danger" ng-if="ctrl.failureMessage">{{ ctrl.failureMessage }}</div>
+            <div class="media">
+                
+                <div class="media-body">
+                    <button ng-hide="ctrl.editMode" ng-click="ctrl.toggleEditMode()">Edit</button>
+                    <button ng-show="ctrl.editMode" ng-click="ctrl.saveUser()">Save</button>
+                  
+                    <div>
+                        <p>
+                            <h6>Appointment Details</h6>
+                        </p>
+                        <p> <span>ID:</span>
+                            <b><span >{{ ctrl.selectedContact.aid }}</span></b>
+                           <!-- <input type="text" ng-model="ctrl.selectedContact.aid" ng-show="ctrl.editMode">-->
+                        </p>
+                         <p> <span>Patient Name:</span>
+                        <b><span ng-hide="ctrl.editMode">{{ ctrl.selectedContact.pname }}</span></b>
+                        <input type="text" ng-model="ctrl.selectedContact.pname" ng-show="ctrl.editMode">
+                    </p>
+                        <p> <span>Date:</span>
+                            <b><span ng-hide="ctrl.editMode">{{ ctrl.selectedContact.adate }}</span></b>
+                            <input type="text" ng-model="ctrl.selectedContact.adate" ng-show="ctrl.editMode">
+                        </p>
+                         <p> <span>Time:</span>
+                            <b><span ng-hide="ctrl.editMode">{{ ctrl.selectedContact.atime }}</span></b>
+                            <input type="text" ng-model="ctrl.selectedContact.atime" ng-show="ctrl.editMode">
+                        </p>
+                       
+                        <p> <span>Subject:</span>
+                            <b><span ng-hide="ctrl.editMode">{{ ctrl.selectedContact.asubject }}</span></b>
+                            <input type="text" ng-model="ctrl.selectedContact.asubject" ng-show="ctrl.editMode">
+                        </p>
+                         <p> <span>Notes:</span>
+                            <b><span ng-hide="ctrl.editMode">{{ ctrl.selectedContact.anotes }}</span></b>
+                            <input type="text" ng-model="ctrl.selectedContact.anotes" ng-show="ctrl.editMode">
+                        </p>
+                        
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

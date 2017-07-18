@@ -1,0 +1,36 @@
+	
+	=> First of all import the mysql data into your mysql data base.  I have given you the .sql file in the project folder.
+
+
+First Approach: (Through Eclipse)
+
+	1. Extract the zip file named Calender.zip then you will get Calendar folder.  It's the root folder for the maven project.
+	2. Open your eclipse (Eclipse Neon preferred).  
+	3. Import the project as follows
+			-> Right click on Package Explorer
+			-> "Import"
+			-> Select "Existing Maven Project"
+			-> Give the Root Directory as Calendar folder at your saved location of the Calendar folder
+			-> Then click finish.
+	4. You can see the project named "Calendar" in your package explorer.
+	5. Before going to run this, It is better to install Google Chrome web browser.  You have to add the Access-control-Allow-Origin plug-in for the chrome. 
+		The bellow link will help you to download the plug-in.
+		https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?hl=en
+		
+	6. Now configure the project with any web server like tomcat. 
+	7. Run the project on that sever.
+	8. It will invoke the index.html page in the webapp/MyHttpContactsApp folder with in the project folder.
+	9. There you can Edit the appointment, Add new appointment, Delete the existing appointment.  
+
+Second Approach: (Through command line)
+
+	1. Run you "Tomcat7.exe" file in you tomcat installation directory
+	2. Open your command line
+	3. Go to the directory where you have saved the  project 
+	4. Open the directory with     CD <Directory-NAME>
+	5. Here you have your pom.xml file
+	6. Follow the bellow commands now on...
+			mvn clean
+			mvn package
+			mvn tomcat7: run
+			

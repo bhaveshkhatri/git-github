@@ -1,0 +1,18 @@
+package com.cb.practice;
+
+import java.util.Scanner;
+
+public class Mine {
+	
+	public static void main(String args[]) {
+		
+		int given;
+		Scanner s = new Scanner();
+		System.out.print("Please enter the number: ");
+		s.nextInt();
+		
+		
+	}
+}
+
+

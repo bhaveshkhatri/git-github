@@ -1,0 +1,31 @@
+package org.cb.practice;
+
+import java.io.IOException;
+
+public class Multi extends Thread {
+	
+	public void run() {
+		
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(Thread.interrupted()) {
+			System.out.println("Thread interupted");
+		})
+		System.out.println("chinna");
+	}
+	
+	
+	public static void main(String args[]) {
+		
+		Multi m = new Multi();
+		m.start();
+		m.interrupt();
+		
+		
+	}
+	
+}

@@ -1,0 +1,25 @@
+package com.cb.practice;
+
+import java.util.Scanner;
+
+public class PrimeNumber {
+	
+	 int rollno;  
+	   String name;  
+	   static String college ="ITS";  
+	     
+	   PrimeNumber(int r,String n){  
+	   rollno = r;  
+	   name = n;  
+	   }  
+	 void display (){System.out.println(rollno+" "+name+" "+college);}  
+	  
+	 public static void main(String args[]){  
+	 PrimeNumber s1 = new PrimeNumber(111,"Karan");  
+	 PrimeNumber s2 = new PrimeNumber(222,"Aryan");  
+	   
+	 s1.display();  
+	 s2.display();  
+	 }  
+}
+

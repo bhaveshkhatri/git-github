@@ -1,0 +1,28 @@
+package org.cb.practice;
+
+public class MyThread extends Thread {
+
+	public void run() {
+		System.out.println("shutdown hook task completed...");
+	}
+
+}
+
+public class Multi {
+	
+	public static void main(String args[]) {
+		
+		Runtime r = Runtime.getRuntime();
+		
+		r.addShutdownHook(new MyTest());
+		
+		System.out.println("Now main sleeping.... Press ctrl+c to exit");
+		
+		try {
+			Thread.sleep(3000);
+		}catch(InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+	}
+}

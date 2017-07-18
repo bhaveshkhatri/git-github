@@ -1,0 +1,229 @@
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FileSystem;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.DoubleWritable;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapred.jobcontrol.JobControl;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.input.KeyValueTextInputFormat;
+import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
+import org.apache.hadoop.mapreduce.lib.jobcontrol.ControlledJob;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
+
+public class AssignmentDriver {
+	
+	static Configuration conf = new Configuration(); 
+	
+  public static void main(String[] args) throws Exception {
+  
+	 // ------------------------
+	 //  Job 1
+	 // ------------------------
+	 // Create job1 Object
+	  Job job_1 = Job.getInstance(conf);
+	  job_1.setJobName("Job-1 Parsing");
+	   	  
+	 // Set JAR class: AssignmentDriver
+	  job_1.setJarByClass(AssignmentDriver.class);
+	 
+	 // Set Mapper class for Job1: DocumentParsingMapper
+	  job_1.setMapperClass(DocumentParsingMapper.class);
+	 // Set Reducer class for Job1: DocumentParsingReducer
+	  job_1.setReducerClass(DocumentParsingReducer.class);
+	  
+	 // Set Output Key type: Text
+	  job_1.setOutputKeyClass(Text.class);
+	 // Set Output Value type: Article
+	  job_1.setOutputValueClass(Article.class);
+	  
+	 // Set Inputformat class: WholeFileInputFormat
+	  job_1.setInputFormatClass(WholeFileInputFormat.class);
+	 // Since the dataset contains multiple folders, make sure to read in recursive mode:  WholeFileInputFormat.setInputDirRecursive(job1, true);
+	  WholeFileInputFormat.setInputDirRecursive(job_1, true);
+	 
+	 // Set Input Path "20-newsgroups" for local testing or args[0] when you export the jar
+	  FileInputFormat.setInputPaths(job_1, new Path(args[0]));
+	 // Set Output path
+	  FileOutputFormat.setOutputPath(job_1,new Path("/Users/Result/Output"));
+	  
+	  // Don't submit the job!
+	  
+
+     
+     // ------------------------
+	 //  Job 2
+	 // ------------------------
+	 // Create job2 Object
+	  Job job_2 = Job.getInstance(conf);
+	  job_2.setJobName("Job-2 overall dataset statistics");
+	 // Set JAR class: AssignmentDriver
+	  job_2.setJarByClass(AssignmentDriver.class);
+	 
+	 // Set Mapper class for Job1: OverallStatsMapper
+	  job_2.setMapperClass(OverallStatsMapper.class);
+	 // Set Reducer class for Job1: OverallStatsReducer
+	  job_2.setReducerClass(OverallStatsReducer.class);
+	  
+	 // Set Output Key type: Text
+	  job_2.setOutputKeyClass(Text.class);
+	 // Set Output Value type: DoubleWritable
+	  job_2.setOutputValueClass(DoubleWritable.class);
+     
+     // Set Mapper Output Key type: LongWritable  (this is needed here because the key and value types of Mapper are different from reducer). Use the Job2.setMapKeyClass(...)
+	  job_2.setMapOutputKeyClass(LongWritable.class);
+     // Set Mapper Output Key type: IntWritable  (this is needed here because the key and value types of Mapper are different from reducer).  Use the Job2.setMapValueClass(...)
+	  job_2.setMapOutputValueClass(IntWritable.class);
+	  
+	 // Set Inputformat class: TextInputFormat
+	  job_2.setInputFormatClass(TextInputFormat.class);
+	 
+	 // Set Input Path: the output path of Job 1
+	  FileInputFormat.setInputPaths(job_2,new Path("/Users/Result/Output"));
+	 // Set Output path
+	  FileOutputFormat.setOutputPath(job_2, new Path(args[1]));
+     
+     // Don't submit the job!
+     
+    
+     
+     // ------------------------
+  	 //  Job 3
+  	 // ------------------------
+  	 // Create job3 Object
+	  Job job_3 = Job.getInstance(conf);
+  	 // Set JAR class: AssignmentDriver
+	  job_3.setJarByClass(AssignmentDriver.class);
+		 job_3.setJobName("Job-3 Computing per category stats");
+  	 
+  	 // Set Mapper class for Job1: CategoryStatsMapper
+		 job_3.setMapperClass(CategoryStatsMapper.class);
+  	 // Set Reducer class for Job1: CategoryStatsReducer
+		 job_3.setReducerClass(CategoryStatsReducer.class);
+  	  
+  	 // Set Output Key type: Text
+		 job_3.setOutputKeyClass(Text.class);
+  	 // Set Output Value type: Text
+		 job_3.setOutputValueClass(Text.class);
+       
+     // Set Mapper Output Key type: Text  (this is needed here because the key and value types of Mapper are different from reducer). Use the Job2.setMapKeyClass(...)
+		 job_3.setMapOutputKeyClass(Text.class);
+     // Set Mapper Output Key type: IntWritable  (this is needed here because the key and value types of Mapper are different from reducer).  Use the Job2.setMapValueClass(...)
+		 job_3.setMapOutputValueClass(IntWritable.class);
+  	  
+  	 // Set Inputformat class: TextInputFormat
+		 job_3.setInputFormatClass(TextInputFormat.class);
+  	 
+  	 // Set Input Path: the output path of Job 1
+		 FileInputFormat.setInputPaths(job_3,new Path("/Users/Result/Output"));
+  	 // Set Output path
+		 FileOutputFormat.setOutputPath(job_3,new Path(args[2]));
+       
+     // Don't submit the job!
+     
+ 
+     
+     // ------------------------
+  	 //  Job 4
+  	 // ------------------------
+  	 // Create job4 Object
+		 Job job_4 = Job.getInstance(conf);
+  	 // Set JAR class: AssignmentDriver
+		 job_4.setJarByClass(AssignmentDriver.class);
+		 job_4.setJobName("Job-4 Computing category overall stats");
+  	 
+  	 // Set Mapper class for Job1: CategoryOverallStatsMapper
+		 job_4.setMapperClass(CategoryOverallStatsMapper.class);
+  	 // Set Reducer class for Job1: CategoryOverallStatsReducer
+		 job_4.setReducerClass(CategoryOverallStatsReducer.class);
+  	  
+  	 // Set Output Key type: Text
+		 job_4.setOutputKeyClass(Text.class);
+  	 // Set Output Value type: Text
+		 job_4.setOutputValueClass(Text.class);
+      
+  	 // Set Inputformat class: KeyValueTextInputFormat
+		 job_4.setInputFormatClass(KeyValueTextInputFormat.class);
+  	 
+  	 // Set Input Path: the output path of Job 3
+		 FileInputFormat.setInputPaths(job_4,new Path(args[2]));
+  	 // Set Output path
+		 FileOutputFormat.setOutputPath(job_4,new Path("/Users/Result/Output"));
+       
+     // Don't submit the job!
+     
+
+     
+     // ------------------------
+  	 //  Create Controlled Jobs
+  	 // ------------------------
+     
+     // Create Controlled Job for Job1.
+		 ControlledJob cjob_1 = new ControlledJob(conf);
+	     cjob_1.setJob(job_1);
+     // Configuration ControlJobConf1 = new Configuration();
+     // ControlledJob controlledJob1 = new ControlledJob(ControlJobConf1);
+     // controlledJob1.setJob(job1);
+     
+    
+     // Create Controlled Job for Job2.
+	     ControlledJob cjob_2 = new ControlledJob(conf);
+	     cjob_2.setJob(job_2);
+    
+     
+     // Create Controlled Job for Job3.
+	     ControlledJob cjob_3 = new ControlledJob(conf);
+	     cjob_3.setJob(job_3);
+     
+     
+     // Create Controlled Job for Job4.
+	     ControlledJob cjob_4 = new ControlledJob(conf);
+	     cjob_4.setJob(job_4);
+     
+     
+     // ------------------------
+  	 //  Create Job Dependencies
+  	 // ------------------------
+     
+     // add job1 as a dependency for job2
+	     cjob_2.addDependingJob(cjob_1);
+     
+     // add job1 as a dependency for job3
+	     cjob_3.addDependingJob(cjob_1);
+     
+     // add job3 as a dependency for job4
+	     cjob_4.addDependingJob(cjob_3);
+     
+     
+     // ------------------------
+  	 // The Job Controller
+  	 // ------------------------
+     
+     // create a job controller object
+	     JobControl jcontrol = new JobControl("Control the jobs");
+     
+     // add ControlledJob1 to the controller
+	     jcontrol.addJob(cjob_1);
+	 // add ControlledJob2 to the controller
+	     jcontrol.addJob(cjob_2);
+	 // add ControlledJob3 to the controller
+	     jcontrol.addJob(cjob_3);
+	 // add ControlledJob4 to the controller
+	     jcontrol.addJob(cjob_4);
+     
+     // Run the controller
+	     Thread thread = new Thread(jcontrol);
+	     thread.start();
+	      while (!jcontrol.allFinished()) {
+	    	  try {
+	              Thread.sleep(5000);
+	            } catch (InterruptedException e) {
+	              e.printStackTrace();
+	            }
+	      }
+	      jcontrol.stop();
+  }
+}

@@ -1,0 +1,9 @@
+package org.cb.springpractice;
+
+public class Triangle {
+
+	public void draw() {
+		System.out.pringln("Draw Triangle");
+		
+	}
+}

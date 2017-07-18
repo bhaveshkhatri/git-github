@@ -1,0 +1,11 @@
+package com.cb;
+
+public class HelloWorld implements Greeting {
+
+	@Override
+	public void greet() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

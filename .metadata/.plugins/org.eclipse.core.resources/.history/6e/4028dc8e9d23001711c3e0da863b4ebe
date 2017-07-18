@@ -1,0 +1,48 @@
+package com.cb.cogent;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+public class INOTest {
+
+	private static String home = System.getProperty("user.home");
+	
+	public static void existPath() throws IOException {
+		Path path = Paths.get(home);
+		System.out.println(Files.exists(path));
+		System.out.println(Files.isRegularFile(path));
+		System.out.println(Files.isExecutable(path));
+		System.out.println(Files.isReadable(path));
+		System.out.println(Files.isWritable(path));
+		//System.out.println(Files.isSameFile(path, path2));
+		
+		String newFile = "D:/New folder/cb.txt";
+		String newDir = "New folder";
+		Path p2 = Paths.get(home+"/"+newFile);
+		Files.createFile(p2);
+		Path p3 = Paths.get(home+"/"+newDir);
+		Files.createDirectory(p3);
+		Files.exists(p2);
+		Files.exists(p3);
+		System.out.println(Files.isRegularFile(p2));
+		System.out.println(Files.isDirectory(p3));
+		String nio2 = "temp";
+		String txt = "txt";
+		Path p4 = Paths.get(home+"/");
+		Files.createTempFile(p4, nio2, txt);
+		System.out.println(Files.exists(p4));
+		System.out.println(Files.createTempFile(p4, null, null));
+	}
+	
+	public static void main(String[] args) {
+		try {
+			existPath();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+}

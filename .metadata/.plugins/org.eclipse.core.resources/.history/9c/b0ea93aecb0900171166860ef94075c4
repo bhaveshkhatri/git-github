@@ -1,0 +1,22 @@
+package com.cb.practice;
+
+import java.util.Scanner;
+
+public class Mine {
+	
+	public static void main(String args[]) {
+		
+		int a, b;
+		
+		System.out.println("Please enter value for a");
+		Scanner s = new Scanner(System.in);
+		
+		a = s.nextInt();
+		System.out.println("please enter value for b");
+		b=s.nextInt();
+		
+		int c = a+b;
+		System.out.println("Tha value of c after addition is: "+c);
+	}
+
+}

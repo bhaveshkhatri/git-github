@@ -1,0 +1,42 @@
+package org.cb.practice.hibernate;
+
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+
+import javax.persistence.Query;
+
+import org.cb.practice.dto.Address;
+import org.cb.practice.dto.FourWheeler;
+import org.cb.practice.dto.TwoWheeler;
+import org.cb.practice.dto.UserDetails;
+import org.cb.practice.dto.Vehicle;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+public class HibernateTest {
+
+	public static void main(String[] args) {
+
+										
+		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		
+		String minUserId = "5" 
+		
+		Query query =  session.createQuery("from UserDetails where userId>?");
+		query.setParameter(0, arg1)
+		
+		
+		List<UserDetails> list = (List<UserDetails>)query.getResultList();
+				
+		session.getTransaction().commit();
+		session.close();
+		for(UserDetails u: list)
+		System.out.println(u.getUserID()+"  "+u.getUserName());
+		
+		}
+
+}

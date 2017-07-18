@@ -1,0 +1,32 @@
+package com.cb.practice;
+
+import java.util.Scanner;
+
+public class Mine {
+	
+	public static void main(String args[]) {
+		
+		double given, result;
+		Scanner s = new Scanner(System.in);
+		System.out.print("Please enter the number: ");
+		given = s.nextInt();
+		double x, i, n;
+		for(i=111, n=3; ;i=(i+x), n++) {
+			
+			result = i%given;
+			if(result == 0) {
+				System.out.println("The result is: "+i);
+				break;				
+			}
+			x = Math.pow(10, n);
+			 System.out.println(x);
+		}
+		
+		
+		
+		
+		
+	}
+}
+
+

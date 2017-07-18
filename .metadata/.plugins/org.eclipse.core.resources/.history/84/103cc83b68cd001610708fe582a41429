@@ -1,0 +1,15 @@
+package org.cb.springpractice.aspect;
+
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+
+@Aspect
+public class LoginAspect {
+	
+	@Before("execution(public String  org.cb.springpractice.model.Triangle.getName())")
+	public void loginAdvice() {
+		
+		System.out.println("Advice run:  Get method called");
+	}
+
+}

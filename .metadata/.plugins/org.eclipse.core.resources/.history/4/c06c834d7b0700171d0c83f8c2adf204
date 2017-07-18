@@ -1,0 +1,5 @@
+package org.cb.practice.rest;
+
+public class LoggingFilter {
+
+}

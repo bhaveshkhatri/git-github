@@ -1,0 +1,26 @@
+package com.cb.practice.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.cb.practice.dao.UserDaoImpl;
+
+@Controller
+public class FirstController {
+
+	@Autowired
+	private UserDaoImpl userDao;
+	
+	@RequestMapping("/welcome")
+	public ModelAndView firstMethod() {
+		
+		System.out.println("it is here!!!!!!!!!!!");
+		userDao.registerUser(user);
+		ModelAndView mv = new ModelAndView("welcome");
+		mv.addObject("message", "Welcome to the world of Spring ORM with Hibernate through MAVEN");
+		return mv;
+	}
+	
+}

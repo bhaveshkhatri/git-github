@@ -1,0 +1,16 @@
+package com.cb;
+
+public class TypeInferenceExample {
+
+	public static void main(String[] args) {
+		
+		StringLengthLambda myLabda = (String s) -> s.length();
+		
+	}
+	
+
+}
+
+interface StringLengthLambda {
+	int getLength(String s);
+}

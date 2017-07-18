@@ -1,0 +1,20 @@
+package org.cb.practice;
+
+import java.io.IOException;
+
+public class Multi {
+	
+	public static void main(String args[]) {
+		
+		Runtime r = Runtime.getRuntime();
+		
+		try {
+			r.exec("shutdown -r -t o");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+}

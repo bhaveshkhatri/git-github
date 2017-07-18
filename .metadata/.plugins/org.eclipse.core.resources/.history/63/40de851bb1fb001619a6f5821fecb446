@@ -1,0 +1,30 @@
+package org.cb.practice;
+
+import java.io.IOException;
+
+class Customer {
+	
+	int amount = 10000;
+	
+	public void withdraw(int amount) {
+		
+		if(this.amount < amount) {
+			System.out.println("Insufficiaent funds! Waiting for deposit.....");
+			try {
+				wait();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+}
+
+
+
+public class Multi extends Thread {
+	
+	public static void main(String args[]) {
+		
+	}
+	
+}

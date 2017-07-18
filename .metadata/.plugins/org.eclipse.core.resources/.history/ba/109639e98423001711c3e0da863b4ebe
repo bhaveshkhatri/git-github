@@ -1,0 +1,18 @@
+package com.cb.cogent;
+
+public class Serilizer {
+
+	public static void main(String[] args) {
+
+		Serilizer serializer = new Serilizer();
+		serializer.serializeAddress("gemini", "usa", "tx", "1126");
+		
+
+	}
+
+	private void serializeAddress(String street, String country, String state, String empAddress) {
+		
+		
+	}
+
+}

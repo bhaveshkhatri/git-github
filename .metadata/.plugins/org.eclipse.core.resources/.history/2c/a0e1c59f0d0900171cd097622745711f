@@ -1,0 +1,48 @@
+package com.cb.practice;
+
+import java.util.Scanner;
+
+public class PrimeNumber {
+	
+	public static void main(String args[]) {
+		
+		/*System.out.println("enter a number");
+		Scanner s = new Scanner(System.in);	
+		int x = s.nextInt();
+		int v, i;
+	int n=0;
+	n= x/2;
+		for(i=2;i<=n;i++) {
+			
+			if(x==2) {
+				System.out.println("2 is a prime number"); break;
+			}
+			
+			v=x%i;
+			if(v==0) {
+				System.out.println(x+" is not a prime number");
+				break;
+			}
+			else if(i==10 && v!=0) {
+				System.out.println(x+" is a prime number");
+			}
+			
+		}
+		
+	}
+*/
+		  
+			  int i,m=0,flag=0;    
+			  int n=5;//it is the number to be checked  
+			  m=n/2;    
+			  for(i=2;i<=m;i++){    
+			   if(n%i==0){    
+			   System.out.println("Number is not prime");    
+			   flag=1;    
+			   break;    
+			   }    
+			  }    
+			  if(flag==0)    
+			  System.out.println("Number is prime");    
+			}  
+}

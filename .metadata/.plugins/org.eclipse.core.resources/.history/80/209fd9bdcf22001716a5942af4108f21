@@ -1,0 +1,72 @@
+package com.cb;
+
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+public class UnitExercise {
+
+	public static void main(String[] args) {
+	
+		List<Person> people = Arrays.asList(new Person("Charles", "Dicken", 60), 
+											new Person("Lewis", "Carrol", 42), 
+											new Person("Thomas", "Carlyle", 51), 
+											new Person("Charlotte", "Bronte", 45), 
+											new Person("Mathew", "Arnold", 39));
+		/*for(Person p: people)
+			System.out.println(p.getfName()+" "+p.getlName()+" "+p.getAge());
+		System.out.println("\n\n\n\n");*/
+		
+		//Step 1: Sort list by last name
+		
+		SortList sortList = l -> {
+			
+			Collections.sort(l, new Comparator<Person>() {
+
+				@Override
+				public int compare(Person o1, Person o2) {
+					
+					return o1.getlName().compareToIgnoreCase(o2.getlName());
+				}				
+			});
+			return l;
+						
+		};
+		
+		//Step 2: Print the sorted list
+		PrintList printList = l -> {
+			for(Person p: l)
+				System.out.println(p.getfName()+" "+p.getlName()+" "+p.getAge());
+		};
+		
+		
+		
+		//sortList.sort(people);
+		printList.print(sortList.sort(people));
+		
+		//Step 3: Create a method that prints all people that have last name starts with 'c'
+		NamesWithC names = l -> {
+			for(Person p: l) {
+				if(p.getfName().charAt(0)=='c')
+					System.out.println(p.getlName());
+			}
+		};
+		
+	}
+}
+
+interface SortList {
+
+	public List<Person> sort(List<Person> l);
+}
+
+
+interface PrintList {
+	public void print(List<Person> l);
+}
+
+interface NamesWithC {
+	public void printNamesWithC(List<Person> l);
+}

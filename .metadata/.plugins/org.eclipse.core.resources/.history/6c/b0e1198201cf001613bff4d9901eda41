@@ -1,0 +1,25 @@
+package org.cb.springpractice.aspect;
+
+import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
+
+@Aspect
+public class LoginAspect {
+	
+	/*@Before("allGetters()")
+	public void loginAdvice() {
+		
+		System.out.println("Login Advice run:  Get method called");
+	}*/
+
+	@After("args(name)")
+	public void logoutAdvice(String name) {
+		System.out.println("Logout Advice run:  Get method called "+name);
+	}
+	
+	@Pointcut("execution(* get*())")
+	public void allGetters() {}
+	
+}

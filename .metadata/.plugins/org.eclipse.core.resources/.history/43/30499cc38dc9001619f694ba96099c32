@@ -1,0 +1,19 @@
+package com.cb.practice;
+
+import org.springframework.context.ApplicationEvent;
+import org.springframework.context.ApplicationListener;
+
+@Component
+public class MyEventListener implements ApplicationListener {
+
+	@Override
+	public void onApplicationEvent(ApplicationEvent event) {
+		
+		System.out.println(event.toString());
+	}
+	
+	
+	
+	
+
+}

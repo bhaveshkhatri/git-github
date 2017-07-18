@@ -1,0 +1,21 @@
+package org.cb.practice;
+
+public class Multi extends Thread {
+
+	public void run() {
+		System.out.println("shutdown hook task completed...");
+	}
+
+}
+
+class TestHook {
+	
+	public static void main(String args[]) {
+		
+		Runtime r = Runtime.getRuntime();
+		
+		r.addShutdownHook(new Multi());
+		
+		
+	}
+}

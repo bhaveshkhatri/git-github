@@ -1,0 +1,19 @@
+package com.cb.practice;
+
+import java.util.Scanner;
+
+public class Mine {
+	
+	public static void main(String args[]) {
+		
+		
+		int array[] = {1, 2, 4, 3};
+		
+		
+		
+		
+		
+	}
+}
+
+

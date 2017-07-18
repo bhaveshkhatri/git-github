@@ -1,0 +1,7 @@
+package com.cb;
+
+public interface Greeting {
+	
+	public void greet();
+
+}

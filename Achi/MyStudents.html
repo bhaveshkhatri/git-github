@@ -1,0 +1,93 @@
+<html>
+    <head><title>::My Students::</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+</style>
+    </head>
+    <body>
+        <table bgcolor="#FF7F50" align="center">
+           
+            <tr><td colspan="4"><img src="Capture.PNG" height="70%" width="100%"/></td></tr>
+            <tr><td colspan="4" style="font-size:20px;color:#117A65">My Students<button onclick="window.location.href='AddStudent.html'" style="margin: 0px 0px 0px 350px" >Add Student</button> </td></tr>                
+            <tr style="background-color: grey"> <td>First Name</td> <td>Last Name</td><td>Student Id</td><td>School Name</td></tr>     
+            <tr style="background-color: grey">
+                <td id="firstName">No records found</td>
+                <td id="lastName"></td>
+                <td id="sid"></td>
+                <td id="studentName"></td>
+            </tr>   
+            
+            <tr><td colspan="4"><button style="margin: 0px 245px">OK</button></td></tr>
+        </table>
+        <script type="text/javascript">
+            window.onload = function() {
+                var i;
+                var x = window.location.href;
+                //console.log(x+" cb");
+                var y = x.split('?');
+               /* for(i = 0; i<y.length;i++) {
+                    console.log(y[i]);
+                }*/
+
+                var fResult = y[1].split('&');
+                /* for(i = 0; i<fResult.length;i++) {
+                    console.log(fResult[i]);
+                }*/
+                var fname, lname, id, sname;
+                var p = fResult[0].split('=');
+                fname = p[1];
+                var q = fResult[1].split('=');
+                lname = q[1];
+                var r = fResult[2].split('=');
+                id = r[1];
+                var s = fResult[3].split('=');
+                sname = s[1];
+
+                console.log(fname+" "+lname+" "+id+" "+sname);
+                document.getElementById("firstName").innerHTML = fname;
+                document.getElementById("lastName").innerHTML = lname;
+                document.getElementById("sid").innerHTML = id;
+                document.getElementById("studentName").innerHTML = sname;
+
+            }
+        </script>
+    </body>
+</html>

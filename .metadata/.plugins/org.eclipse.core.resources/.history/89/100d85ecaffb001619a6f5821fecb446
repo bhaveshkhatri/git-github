@@ -1,0 +1,24 @@
+package org.cb.practice;
+
+import java.io.IOException;
+
+public class Multi extends Thread {
+	
+	public void run() {
+		
+		Thread.sleep(5000);
+		System.out.println();
+	}
+	
+	
+	public static void main(String args[]) {
+		
+		Runtime r = Runtime.getRuntime();
+		
+		
+			System.out.println(r.totalMemory());
+		
+		
+	}
+	
+}

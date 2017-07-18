@@ -1,0 +1,16 @@
+package com.cb.practice;
+
+public class Station extends Thread {
+
+	Pipe inPipe = new Pipe();
+	Pipe outPipe = new Pipe();
+	
+	
+	int workLoad;
+	
+	public Station(int workload) {
+		
+		this.workLoad = workload;
+	}
+	
+}

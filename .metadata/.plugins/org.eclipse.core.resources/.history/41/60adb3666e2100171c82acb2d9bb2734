@@ -1,0 +1,12 @@
+package com.cb;
+
+public class HelloWorld extends Greeting {
+
+	@Override
+	public void greet() {
+	
+		System.out.println("Hello World");
+
+	}
+
+}

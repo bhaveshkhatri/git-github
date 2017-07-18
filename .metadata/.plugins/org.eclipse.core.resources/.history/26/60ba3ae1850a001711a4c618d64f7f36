@@ -1,0 +1,39 @@
+package com.cb.practice;
+
+import java.util.Scanner;
+
+public class Mine {
+	
+	public static void main(String args[]) {
+		
+		int a, b, answer=0;
+		
+		System.out.println("Please enter value for a");
+		Scanner s = new Scanner(System.in);
+		
+		a = s.nextInt();
+		System.out.println("please enter value for b");
+		b=s.nextInt();
+		
+		
+		System.out.println("Please select what you want to do\n 1. Addition\n"
+				+ "2. Substraction\n 3. Multiplication\n 4. Divide");
+		int choice;
+		choice= s.nextInt();
+		if(choice == 1) {
+			answer = a+b;
+		}
+		if(choice == 2) {
+			answer = a-b;
+		}
+		if(choice == 3) {
+			answer = a*b;
+		}
+		if(choice == 4) {
+			answer = a/b;
+		}
+		System.out.println("The value after caleculation is: "+answer);
+	}
+}
+
+

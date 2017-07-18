@@ -1,0 +1,40 @@
+package org.cb.springpractice.aspect;
+
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
+
+@Aspect
+public class LoginAspect {
+	
+	/*@Before("allGetters()")
+	public void loginAdvice() {
+		
+		System.out.println("Login Advice run:  Get method called");
+	}*/
+	
+	
+	@AfterReturning("allGetters()")
+	public void atAfter() {
+		System.out.println("after getcircle.getname()");
+	}
+	
+	
+	@AfterReturning("args(name)")
+	public void loginadvice(String name) {
+		System.out.println("logout advice with string argument is called "+name);
+	}
+	
+	@AfterThrowing(pointcut="args(name)", returning="returnException") 
+		public void exceptionthrwon(String name, Object retrunException) {
+		System.out.println("an exception has been thrown "+retrunException);
+	}
+	
+	@Pointcut("execution(* org.cb.springpractice.model.Circle.getName(..))")
+	public void allGetters() {}
+	
+}

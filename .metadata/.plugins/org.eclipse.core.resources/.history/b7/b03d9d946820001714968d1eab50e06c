@@ -1,0 +1,26 @@
+package com.cb;
+
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Random;
+
+
+
+	class mine {
+        public static void main(String args[]) {
+            LinkedList<Integer> list = new LinkedList();
+            list.add(new Integer(2));
+            list.add(new Integer(8));
+            list.add(new Integer(5));
+            list.add(new Integer(1));
+            Iterator<Integer> i = list.iterator();
+            Collections.reverse(list);
+        Collections.shuffle(list);
+            i.next();
+            i.remove();
+            while(i.hasNext())
+            System.out.print(i.next() + " ");
+        }
+    }
+

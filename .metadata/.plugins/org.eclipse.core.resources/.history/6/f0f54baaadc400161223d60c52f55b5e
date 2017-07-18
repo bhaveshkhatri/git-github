@@ -1,0 +1,11 @@
+package org.chinna.springspractice;
+
+import org.springframework.core.env.SystemEnvironmentPropertySource;
+
+public class Triangle {
+	
+	public void draw() {
+
+	System.out.println("Draw Triangle");
+	}
+}

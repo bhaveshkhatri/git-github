@@ -1,0 +1,24 @@
+package com.cb.practice;
+
+import java.util.Scanner;
+
+public class Mine {
+	
+	public static void main(String args[]) {
+		
+		int a, b;
+		
+		System.out.println("Please enter value for a");
+		Scanner s = new Scanner(System.in);
+		
+		a = s.nextInt();
+		System.out.println("please enter value for b");
+		b=s.nextInt();
+		
+		
+		System.out.println("Please select what you want to do\n 1. Addition\n"
+				+ "2. Substraction\n 3. Multiplication\n 4. Divide");
+	}
+}
+
+}

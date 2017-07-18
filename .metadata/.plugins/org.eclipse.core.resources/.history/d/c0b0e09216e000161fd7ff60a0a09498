@@ -1,0 +1,35 @@
+package org.cb.practice.hibernate;
+
+import java.util.Date;
+
+import org.cb.practice.dto.UserDetails;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+public class HibernateTest {
+
+	public static void main(String[] args) {
+
+		UserDetails user = new UserDetails();
+		user.setUserID(2);
+		user.setUserName("First User");
+		user.setAddress("First User Address");
+		user.setJoinDate(new Date());
+		user.setDescription("First User Description goes here!");
+		
+		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		session.save(user);
+		session.getTransaction().commit();
+		session.close();
+		
+		session = sessionFactory.openSession();
+		session.beginTransaction();
+		user = session.get(UserDetails.class, 1);
+		System.out.println("The user name is: "+user.getUserName());
+
+	}
+
+}

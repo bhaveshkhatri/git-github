@@ -1,0 +1,11 @@
+package org.cb.practice;
+
+import java.io.IOException;
+
+public class Multi extends Thread {
+	
+	public static void main(String args[]) {
+		
+	}
+	
+}

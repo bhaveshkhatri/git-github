@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+   "http://struts.apache.org/dtds/struts-2.0.dtd">
+   
+   <struts>
+   
+   	
+   
+   
+   		<package name="default" namespace="/tutorials" extends="struts-default">
+ 			<action name="getTutorial" class="org.cb.practice.action.TutorialAction">
+ 			<result name="success">/success.jsp</result>
+ 			<result name="failure">/failure.jsp</result>
+ 			<result name="*">/default.jsp</result>
+ 			</action>  
+   		</package>
+   		
+   		<include file="login.xml" />
+   </struts>

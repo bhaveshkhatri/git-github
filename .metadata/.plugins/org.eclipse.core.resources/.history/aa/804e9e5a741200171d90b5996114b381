@@ -1,0 +1,18 @@
+package com.cb.practice;
+
+import java.util.Scanner;
+
+public class Mine {
+	int y;
+	public static void main(String args[]) {
+		
+		runn();
+	}
+
+	
+	public static void runn()  {
+		int x;
+		System.out.println(y);
+	}
+}
+

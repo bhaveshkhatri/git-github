@@ -1,0 +1,55 @@
+package org.cb.practice.action;
+
+import org.apache.commons.lang.StringUtils;
+
+import com.opensymphony.xwork2.Action;
+import com.opensymphony.xwork2.ActionSupport;
+
+public class LoginAction extends ActionSupport {
+	
+	private String userId;
+	private String password;
+	
+	
+	public void validate() {
+		
+		if(StringUtils.isEmpty(getUserId())) {
+			addFieldError("userId", "UserID can not be blank");
+		}
+		if(StringUtils.isEmpty(getPassword())) {
+			addFieldError("password", "Password can not be blank");
+		}
+	}
+		
+	public String execute() {
+		
+		if(getUserId().equals("cb") && getPassword().equals("47")) 
+			return SUCCESS;
+		else
+			return LOGIN;
+	}
+	
+	public String someOther() {
+		
+		return "success";
+	}
+	
+	
+	
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	
+	
+
+}

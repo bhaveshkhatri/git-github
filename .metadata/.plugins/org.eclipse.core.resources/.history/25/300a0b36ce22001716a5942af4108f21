@@ -1,0 +1,8 @@
+package com.cb;
+
+import java.util.List;
+
+public interface SortList {
+
+	public List<Person> sort(List<Person> l);
+}

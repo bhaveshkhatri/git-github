@@ -1,0 +1,19 @@
+package org.cb.springpractice.aspect;
+
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+
+@Aspect
+public class LoginAspect {
+	
+	@Before("execution(* get*())")
+	public void loginAdvice() {
+		
+		System.out.println("Login Advice run:  Get method called");
+	}
+
+	@Before("execution(* get*())")
+	public void logoutAdvice() {
+		System.out.println("Logout Advice run:  Get method called");
+	}
+}

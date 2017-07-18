@@ -1,0 +1,38 @@
+package com.cb;
+
+public class Employee {
+
+	
+	int empID;
+	String empName;
+	Address address;
+	public Employee(int empID, String empName, Address address) {
+		this.empID = empID;
+		this.empName = empName;
+		this.address = address;
+	}
+	
+	public static void main(String[] args) {
+		
+		Address a1 = new Address();
+		a1.setCity("pitss");
+		a1.setState("pa");
+		Address a2 = new Address();
+		a2.setCity("hou");
+		a2.setState("tx");
+		
+		Employee e1 = new Employee(1, "chinna", a1);
+		Employee e2 = new Employee(1, "chinna", a1);
+		
+		System.out.println(e1.toString()   );
+		
+
+	}
+
+	@Override
+	public String toString() {
+		return "Employee [empID=" + empID + ", empName=" + empName
+				+ ", address=" + address + "]";
+	}
+
+}

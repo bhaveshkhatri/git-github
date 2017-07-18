@@ -1,0 +1,9 @@
+package com.cb.practice;
+
+public class Station extends Thread {
+
+	Pipe pipe0 = new Pipe();
+	Pipe pipe1 = new Pipe();
+	Pipe pipe2 = new Pipe();
+	
+}

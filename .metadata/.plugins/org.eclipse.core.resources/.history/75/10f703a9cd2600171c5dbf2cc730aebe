@@ -1,0 +1,33 @@
+package com.cb.cogent;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.commons.dbcp2.BasicDataSource;
+
+public class Find {
+		
+	
+	
+	public static void main(String[] args) {
+		
+		List<String> names = new ArrayList<String>();
+		List<Date> dates = new ArrayList<>();
+		
+		names.add("chinna");
+		names.add("ram");
+		names.add("saran");
+		names.add("padma");
+		
+		dates.add(new Date("04 March 2017"));
+		System.out.println(dates);
+		
+		
+	}
+	
+	
+}

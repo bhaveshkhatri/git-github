@@ -1,0 +1,38 @@
+package com.cb.cogent;
+
+import java.nio.ByteBuffer;
+import java.nio.channels.AsynchronousFileChannel;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.util.concurrent.Future;
+
+public class AsyncFileChannelTest {
+
+	public static void main(String[] args) {
+
+		try {
+			Path path = Paths.get("G:\\Newfolder\\NewTextDocument.txt");
+			AsynchronousFileChannel asy = AsynchronousFileChannel
+											.open(path, StandardOpenOption.READ);
+			ByteBuffer buf = ByteBuffer.allocate(1024);
+			long position = 0; int i=0;
+			Future<Integer> ops = asy.read(buf, position);
+			while(!ops.isDone()) {
+				System.out.println(i++);
+			}
+				
+			buf.flip();
+			byte[] data = new byte[buf.limit()];
+			buf.get(data);
+			System.out.println(new String(data));
+			buf.clear();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+				
+
+	}
+
+}

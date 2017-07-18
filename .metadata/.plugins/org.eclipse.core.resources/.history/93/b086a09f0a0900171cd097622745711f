@@ -1,0 +1,27 @@
+package com.cb.practice;
+
+import java.util.Scanner;
+
+public class Fibonacci {
+
+	private static int i,n;
+	
+	public static void main(String args[]) {
+		
+		System.out.println("Pelase enter a value to find the fibonacci of that number");
+		
+		Scanner s = new Scanner(System.in);
+		n = s.nextInt();
+		
+		if(n<=0) System.out.println(0);
+		if(n==1) System.out.println(n-1+" "+n);
+		if(n>1) {
+			
+			
+		}
+		
+	}
+
+
+	
+}

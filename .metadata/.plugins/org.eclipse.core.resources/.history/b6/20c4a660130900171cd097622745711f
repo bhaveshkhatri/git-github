@@ -1,0 +1,29 @@
+package com.cb.practice;
+
+import java.util.Scanner;
+
+public class PrimeNumber {
+	
+	public static void main(String args[]) {
+		
+		int n=6;
+		int m, i;
+		m=n/2;
+		
+		
+		for(i=2; i<=m;i++) {
+			if(n%i == 0) {
+				System.out.println("It is not prime");
+				break;
+			}
+			else {
+				System.out.println("It is prime");
+				break;
+			}
+		}
+		
+		
+		
+}
+}
+

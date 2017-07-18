@@ -1,0 +1,17 @@
+package com.cb.cogent;
+
+import java.nio.channels.AsynchronousFileChannel;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+
+public class AsyncFileChannelTest {
+
+	public static void main(String[] args) {
+
+		Path path = Paths.get("users.home");
+		AsynchronousFileChannel asy = AsynchronousFileChannel.open(path, StandardOpenOption.READ);
+		
+
+	}
+
+}

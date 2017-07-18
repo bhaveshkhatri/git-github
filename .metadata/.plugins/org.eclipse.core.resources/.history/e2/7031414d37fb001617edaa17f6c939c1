@@ -1,0 +1,20 @@
+package org.cb.practice;
+
+import java.io.IOException;
+
+public class Multi {
+	
+	public static void main(String args[]) {
+		
+		Runtime r = Runtime.getRuntime();
+		
+		try {
+			System.out.println(r.availableProcessors());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+}

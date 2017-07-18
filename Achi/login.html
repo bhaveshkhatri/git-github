@@ -1,0 +1,61 @@
+<html>
+    <head><title>::Login::</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+</style>
+    </head>
+    <body>
+        <table bgcolor="#FF7F50" align="center">
+            <tr><td colspan="2"><img src="Capture.PNG" height="70%" width="100%"/></td></tr>
+            <tr><td colspan="2" style="font-size:20px;color:#117A65">Login to your account</td></tr>            
+            <tr><td><a class="fa fa-envelope-o"></a></td><td><input type="text" placeholder="Email" size="75%"/></td></tr>
+            <tr><td><a class="fa fa-key" aria-hidden="true"></a></td><td><input type="text" placeholder="Password" size="75%"/></td></tr>
+            <tr><td colspan="2">
+                    <button style="width:75px; height:25px;color: white;background-color: blue">Cancel</button>
+                     <button style="width:150px; height:25px;color:white;background-color: blue" onclick="window.location.href='MyStudents.html'">Login</button>
+            
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <a href="forgot.html">Forgot your UserName or Password?</a><br/>
+                     &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <a href="registration.html">Sign up today!</a>
+                </td>    
+            </tr>
+
+        </table>
+    </body>

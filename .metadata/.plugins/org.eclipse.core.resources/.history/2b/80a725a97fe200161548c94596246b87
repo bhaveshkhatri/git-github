@@ -1,0 +1,46 @@
+package org.cb.practice.hibernate;
+
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+
+import javax.persistence.Query;
+
+import org.cb.practice.dto.Address;
+import org.cb.practice.dto.FourWheeler;
+import org.cb.practice.dto.TwoWheeler;
+import org.cb.practice.dto.UserDetails;
+import org.cb.practice.dto.Vehicle;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+public class HibernateTest {
+
+	public static void main(String[] args) {
+
+										
+		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		
+		Query query =  session.createQuery("select UserID, userName from UserDetails");
+				
+		query.setFirstResult(5);
+		query.setMaxResults(2);
+		List,Map<Object[], Object[]>> list =  query.getResultList();
+				
+		session.getTransaction().commit();
+		session.close();
+					
+		for(Object[] l: list) {
+			Integer a = (Integer)l[0];
+			String s = (String)l[1];
+			System.out.println(a+"  "+s);
+		}
+			
+			
+		
+		}
+
+}

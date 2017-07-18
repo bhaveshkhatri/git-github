@@ -1,0 +1,12 @@
+package com.cb;
+
+public class HelloWorld implements Greeting {
+
+	@Override
+	public void geet() {
+	
+		System.out.println("Hello World");
+
+	}
+
+}

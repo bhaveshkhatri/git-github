@@ -1,0 +1,9 @@
+package com.cb;
+
+public class Greeting {
+	
+	public void greet() {
+		System.out.println("class");
+	}
+
+}

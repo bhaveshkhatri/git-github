@@ -1,0 +1,56 @@
+package org.cb.practice;
+
+import java.io.IOException;
+
+class Customer {
+		
+	int amount = 10000;
+		
+	public synchronized void withdraw(int amount) {
+		
+		if(this.amount < amount) {
+			System.out.println("Insufficiaent funds! Waiting for deposit.....");
+			try {
+				wait();
+			} catch (InterruptedException e) {e.printStackTrace();}
+		}
+		this.amount -= amount;
+		System.out.println("Withdraw completed!");
+	}
+	
+	public synchronized void deposit(int amount) {
+		
+		this.amount += amount;
+		System.out.println("Deposit completed...!");
+	}
+
+	
+	
+}
+
+class MyThreads extends Thread {
+	
+	public void run() {
+		withdraw(15000);
+	}
+	
+	public void run() {
+		deposit(10000);
+	}
+}
+
+public class Multi {
+	
+	public static void main(String args[]) {
+		
+		Customer c = new Customer();
+		MyThread m = new MyThreads();
+		
+		Thread t1 = new Thread();
+		
+	}
+
+
+		
+	}
+	

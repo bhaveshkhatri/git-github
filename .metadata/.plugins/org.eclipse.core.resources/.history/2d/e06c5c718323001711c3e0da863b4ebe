@@ -1,0 +1,12 @@
+package com.cb.cogent;
+
+public class Example {
+	
+	private String street;
+	private String country;
+	private String state;
+	private transient String desc = "ABC";
+	
+	
+
+}

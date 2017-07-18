@@ -1,0 +1,26 @@
+package com.cb.practice;
+
+import java.util.Scanner;
+
+public class Mine {
+	
+	public static void main(String args[]) {
+		
+		int i, temp;
+		int a[] = {1, 2, 4, 3};
+		
+		for(i=0; i<a.length; i++) {
+			if(a[i+1] > a[i]+1) {
+				temp = a[i];
+				a[i] = a[i+1];
+				a[i+1] = temp;
+				i=0;
+			}
+		}
+		
+		
+		
+	}
+}
+
+

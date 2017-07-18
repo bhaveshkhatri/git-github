@@ -1,0 +1,34 @@
+package com.cb.practice;
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class WaterTreatmentPlant {
+
+	public static void main(String[] args) throws IOException {
+		
+		FileReader fr;
+		BufferedReader br;
+		try {
+			fr = new FileReader("config.txt");			
+			br = new BufferedReader(fr);
+			String s;
+			while((s = br.readLine())!=null) {
+				System.out.println(s);
+			}
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+		
+
+		
+		
+
+	}
+
+}
