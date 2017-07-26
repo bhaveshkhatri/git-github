@@ -1,0 +1,18 @@
+<html ng-app="modularApp">
+    <head>
+        <title>Moduler App</title>
+        <script src="angular.js"></script>
+        <script src="app.js"></script>
+        <script src="modularCtrl.js"></script>  
+        <script src="http://mbenford.github.io/ngTagsInput/js/ng-tags-input.min.js"></script>
+        <link rel="stylesheet" href="http://mbenford.github.io/ngTagsInput/css/ng-tags-input.min.css" />
+    </head>
+
+    <body>
+        <h1>Module App</h1>
+        <div ng-controller="myCtrl as mc">
+              <tags-input ng-model="mc.tags"></tags-input>
+        </div>
+    </body>
+
+</html>

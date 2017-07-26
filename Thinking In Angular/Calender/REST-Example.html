@@ -1,0 +1,20 @@
+<html>
+      <head>
+              <title>Calender</title>
+              <script src="angular.js"></script>
+              <script src="app.js"></script>
+      </head>
+
+
+<body ng-app="MyApp">
+  <div ng-controller="PostsCtrl as p">
+    <ul ng-repeat="post in p.posts">
+      {{ 1+1 }} chinna
+      <li>{{post.anotes}}</li>
+    </ul>
+  </div>
+</body>
+
+
+
+</html>
