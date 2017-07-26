@@ -1,0 +1,199 @@
+import java.security.SecureRandom;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+public class SynchronizedGame implements Game {
+	
+	private char table[][]= new char[6][7]; //Defined 2d char array to store player colors 'B' and 'R'
+	private int boardVerified = 0,check=0,gameComplete=0; 
+	private final Lock mutexLock =new ReentrantLock();
+	private final Condition refereeCond = mutexLock.newCondition();
+	private final Condition playerCond = mutexLock.newCondition();
+	private static final SecureRandom generator = new SecureRandom(); //generator variables stores random numbers for column selection
+
+
+	public void verifyWinner() throws InterruptedException  {
+		for(;;)
+		{
+			//Referee acquires the lock on shared board 
+			mutexLock.lock();
+			try{
+				
+				//Checking whether game is completed or not. If Yes then returning to the calling function
+				if(gameComplete==1){
+					
+					return;
+				}
+				
+				//Once referee verifies the board, make referee to wait for the player to continue 
+				while(boardVerified==1)
+				{
+
+					refereeCond.await();
+				}
+				
+				//To print the empty board at start of the game
+				if(check==0){
+
+					System.out.println("Hello! The Game has been started!");
+					int k,l;
+					for(k=0;k<6;k++){
+						for(l=0;l<7;l++){
+							table[k][l]='.';
+						}
+					}
+					printboard();
+				}
+				
+				//Verifying whether a player has won or not	
+				if(check>0 && gameComplete!=1)
+				{
+					int i,j;
+					//Horizontal verification
+					for(i=0;i<6;i++){
+						for(j=0;j<4;j++){
+							if((table[i][j]!='.')&&(table[i][j]==table[i][j+1]) &&
+									(table[i][j]==table[i][i+2]) && (table[i][j]==table[i][j+3]) ){
+								System.out.println();
+								System.out.println("Player"+" "+"'"+table[i][j]+"'" +" has won the game horizontally, from position ("+ i+","+j+ ")");
+								printboard();
+								gameComplete=1;
+
+							}
+						}
+					}
+					//Diagonal verification from left to right
+					for(i=0;i<3;i++){ 
+						for(j=0;j<4;j++){
+							if((table[i][j]!='.')&&(table[i][j]==table[i+1][j+1]) &&
+									(table[i][j]==table[i+2][j+2]) && (table[i][j]==table[i+3][j+3])){
+								System.out.println();
+								System.out.println("Player"+" "+"'"+table[i][j]+"'" +" has won the game diagonally, from position ("+ i+","+j+ ")");
+								printboard();
+								gameComplete=1;
+
+							}	
+						}		
+					}
+					//Diagonal verification from right  to left
+					for(i=0;i<3;i++){ 
+						for(j=6;j>2;j--){
+							if((table[i][j]!='.')&&(table[i][j]==table[i+1][j-1]) &&
+									(table[i][j]==table[i+2][j-2]) && (table[i][j]==table[i+3][j-3]  ) ){
+								System.out.println();
+								System.out.println("Player"+" "+"'"+table[i][j]+"'" +" has won the game diagonally, from position ("+ i+","+j+ ")");
+								printboard();
+								gameComplete=1;
+								
+							}	
+						}	
+					}
+
+
+				}
+
+				
+				int count=0;
+				for(int a=0;a<6;a++){
+					for(int b=0;b<7;b++){
+						
+						if(table[a][b]=='*')
+						count++;
+					}
+					
+				}
+				//checking whether all the slots in the board are full or not. If yes then no thread won
+				if(count==0){
+					gameComplete=1;
+					System.out.println();
+					System.out.println("No thread has won the game!");
+					 printboard();
+				}
+				
+				check++;
+				if(check>1){
+					boardVerified = 1;
+					playerCond.signalAll();
+					
+				}
+			}
+			
+			finally
+			{
+				//After the try clause Referee releases the lock
+				mutexLock.unlock();
+			}
+
+		}
+	}
+
+
+	public void playGame(char player) throws InterruptedException {
+		for(;;)
+		{
+			//Player acquires the lock on shared board
+			mutexLock.lock();
+			try{
+				while(boardVerified!=1)
+				{
+					
+					playerCond.await();
+					
+				}
+				
+				//Checking whether game is completed or not in Player module. If Yes then returning to the calling function
+				if(gameComplete==1){
+					
+					return;
+				}
+				
+				//Generating a random number for column selection
+				int column = generator.nextInt(7);
+				while(table[0][column] != '.')
+				{
+					column = generator.nextInt(7);
+				}
+				
+				//Insertion of a coin into the board by a particular player
+				for(int i=5;i>=0;i--){
+
+					if(table[i][column]=='.' && gameComplete!=1){
+
+						table[i][column]=player;
+						System.out.println("Player"+" "+"'"+player+"'" +" has inserted the coin at ("+ i+","+column+ ")");
+						System.out.println();
+						printboard();
+						break;
+					}
+				}
+				
+				boardVerified=0;
+				refereeCond.signal();
+				Thread.sleep(500);
+				
+				
+			}
+			finally
+			{
+				//After the Player has inserted coin, player releases the lock
+				mutexLock.unlock();
+			}
+
+		}
+	}
+	
+
+	void printboard(){
+		int j,h;
+		for(j=0;j<6;j++){
+			for(h=0;h<7;h++){
+				
+				System.out.print("\t"+table[j][h]);
+			}
+			System.out.println();
+		}
+	}
+
+
+}
