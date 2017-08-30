@@ -1,0 +1,57 @@
+<html ng-app="temperatureMonitor">
+
+<head>
+    <title>Temperature Monitor</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+
+    <script src="angular.js"></script>
+    <script src="app.js"></script>
+
+    <style>
+        ul#menu li {
+            display: inline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Temperature Monitor</h1>
+    <hr/>
+    <div class="container" ng-controller="TemperatureCtrl as ctrl">
+
+        <!--Success and Failure messages-->
+        <div class="alert alert-success" ng-if="ctrl.successMessage">{{ctrl.successMessage}}</div>
+        <div class="alert alert-danger" ng-if="ctrl.errorMessage">{{ctrl.errorMessage}}</div>
+
+        <!--Input text box-->
+        <input type="text" type="number" ng-model="ctrl.temperature" placeholder="Enter the temperature"></input>
+        <button ng-click="ctrl.recordTemperature(ctrl.temperature)">ADD</button> <br><br>
+        <hr/>
+
+        <!--To get the current median-->
+        <button ng-click="ctrl.getCurrentMedian()">Get Median Temperature</button>&nbsp=>&nbsp Current Median:
+        <span><b>&nbsp{{ctrl.median}}</b></span><br><br>
+        <hr/>
+        
+        <!--The progress bar for the list of temperatures-->
+        <ul id="menu"><span>Your entered temperatures are: </span><br>
+            <li ng-repeat="temperature in ctrl.listOfTemperatures">{{temperature+"&nbsp&nbsp"}}</li>
+        </ul>
+        <hr/>
+
+        <!--Test cases-->
+        <p>Developer name: <b>Chinna Rao</b></p>
+        <hr/>
+        <a href="Unit Tests\jasmine-standalone-2.8.0\SpecRunner.html">Run Unit Tests</a>
+
+
+    </div>
+
+</body>
+
+</html>
